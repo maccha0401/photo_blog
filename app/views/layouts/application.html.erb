@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Megane</title>
+    <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width">
+
+    <link href="/node_modules/bootstrap/font/css/open-iconic-bootstrap.css" rel="stylesheet">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!-- ■ヘッダー -->
+    <nav class="navbar navbar-light" style="background-color: #ff00ff;">
+      <!-- ロゴ（共通） -->
+      <%= link_to :root, class: "navbar-brand mr-md-auto" do %><span class="oi oi-camera-slr"></span><% end %>
+      <% if logged_in? %>
+        <!-- ユーザ情報 -->
+        <%= link_to :mypage, class: "navbar-brand" do %><span class="oi oi-dashboard"></span><% end %>
+        <!-- ログアウト -->
+        <%= link_to users_delete_path(current_user.id), method: "delete", class: "navbar-brand" do %><span class="oi oi-circle-x"></span><% end %>
+      <% else %>
+        <!-- ログイン -->
+        <%= link_to new_users_path, class: "navbar-brand" do %><span class="oi oi-brush"></span><% end %>
+        <!-- ユーザ登録 -->
+        <%= link_to users_login_path, class: "navbar-brand" do %><span class="oi oi-key"></span><% end %>
+      <% end %>
+    </nav>
+  </head>
+
+  <body>
+    <!-- ■flash の表示 -->
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: key) %>
+    <% end %>
+
+    <!--■本文 の表示-->
+    <%= yield %>
+  </body>
+
+  <!-- ■フッター -->
+  <footer>
+    <nav class="navbar navbar-light" style="background-color: #ff00ff;">
+      <!-- ホーム（共通） -->
+      <%= link_to :root, class: "navbar-brand mr-md-auto" do %><span class="oi oi-home"></span><% end %>
+      <% if logged_in? %>
+        <!-- お気に入り -->
+        <%= link_to :mypage, class: "navbar-brand" do %><span class="oi oi-heart"></span><% end %>
+        <!-- 新規投稿 -->
+        <%= link_to :mypage, class: "navbar-brand" do %><span class="oi oi-external-link"></span><% end %>
+      <% end %>
+    </nav>
+  </footer>
+</html>

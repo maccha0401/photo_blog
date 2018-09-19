@@ -1,0 +1,54 @@
+<%= form_with(model: @user, url: users_path, local: true) do |form| %>
+<!--■エラーの表示。-->
+  <% if @user.errors.any? %>
+    <div class="errors">
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <!--■ここから入力。-->
+  <div class="container">
+    <div class="form_field">
+      <div class="row">
+        <div class="col-12 offset-md-1 col-md-2"><%= form.label :login_name %></div>
+        <div class="offset-1 col-11 offset-md-0 col-md-8"><%= form.text_field :login_name %></div>
+      </div>
+    </div>
+    <div class="form_field">
+      <div class="row">
+        <div class="col-12 offset-md-1 col-md-2"><%= form.label :email %></div>
+        <div class="offset-1 col-11 offset-md-0 col-md-8"><%= form.email_field :email %></div>
+      </div>
+    </div>
+    <div class="form_field">
+      <div class="row">
+        <div class="col-12 offset-md-1 col-md-2"><%= form.label :password %></div>
+        <div class="offset-1 col-11 offset-md-0 col-md-8"><%= form.password_field :password %></div>
+      </div>
+    </div>
+    <div class="form_field">
+      <div class="row">
+        <div class="col-12 offset-md-1 col-md-2"><%= form.label :password_confirmation %></div>
+        <div class="offset-1 col-11 offset-md-0 col-md-8"><%= form.password_field :password_confirmation %></div>
+      </div>
+    </div>
+    <div class="form_field">
+      <div class="row">
+        <div class="col-12 offset-md-1 col-md-2"><%= form.label :face %></div>
+        <div class="offset-1 col-11 offset-md-0 col-md-8"><%= form.file_field :face, id: :face_picture %></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="offset-1">
+        <%= form.submit %>
+        <%= link_to "back", :back, type: "button", class: "btn btn-default" %>
+      </div>
+    </div>
+  </div>
+<% end %>
