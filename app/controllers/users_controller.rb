@@ -18,11 +18,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    if params[:back]
-      overwrite_params_user
-    else
-      set_current_user
-    end
+    set_current_user
   end
 
   def update

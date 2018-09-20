@@ -8,6 +8,9 @@ class User < ApplicationRecord
   has_secure_password
   validates :password, presence: true, length: {minimum: 4}
 
+  # ■association
+  has_many :meganes, dependent: :destroy
+
   # ■Uploader
   mount_uploader :face, FaceUploader
 end

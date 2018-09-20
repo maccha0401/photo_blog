@@ -1,0 +1,32 @@
+<h1>Create megane?</h1>
+<%= form_with(model: @megane, url: meganes_path, local: true) do |form| %>
+  <div class="container">
+    <div class="form_field">
+      <div class="row">
+        <div class="col-12 offset-md-1 col-md-2"><%= form.label :content %></div>
+        <div class="offset-1 col-11 offset-md-0 col-md-8"><%= @megane.content %></div>
+        <%= form.hidden_field :content %>
+      </div>
+    </div>
+    <div class="form_field">
+      <div class="row">
+        <div class="col-12 offset-md-1 col-md-2"><%= form.label :picture %></div>
+        <div class="offset-1 col-11 offset-md-0 col-md-8"><%= image_tag(@megane.picture) %></div>
+        <%= form.hidden_field :picture_cache %>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="offset-1">
+        <%= form.submit %>
+<% end %>
+<%= form_with(model: @megane, url: new_megane_path, local: true, method: "get") do |form| %>
+        <%= form.hidden_field :content %>
+        <%= form.hidden_field :picture_cache %>
+        <%= form.submit "back", name: "back" %>
+<% end %>
+      </div>
+    </div>
+  </div>

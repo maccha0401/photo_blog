@@ -1,0 +1,12 @@
+<% @meganes.each do |megane| %>
+  <div>
+    <%= megane.content %>
+    <%= image_tag megane.picture %>
+    <% if logged_in? %>
+      <% if megane.user_id == current_user.id %>
+        <%= link_to edit_megane_path(megane.id), method: :get, class: "navbar-brand mr-md-auto" do %><span class="oi oi-wrench"></span><% end %>
+        <%= link_to megane_path(megane.id), method: :delete, data:{confirm: "delete this megane?"}, class: "navbar-brand mr-md-auto" do %><span class="oi oi-x"></span><% end %>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
