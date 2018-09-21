@@ -12,6 +12,7 @@
 //
 //= require bootstrap/dist/js/bootstrap.min
 //= require jquery/dist/jquery.js
+//= require infinite-scroll/dist/infinite-scroll.pkgd.min
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .

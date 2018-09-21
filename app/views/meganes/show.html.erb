@@ -1,6 +1,11 @@
 <div class="megane_content">
-  <h2><%= Megane.find(@megane.user_id).name %></h2>
-  <h2><%= iamge_tag @megane.picture %></h2>
-  <%= link_to edit_megane_path(@megane.id), method: :get, class: "navbar-brand mr-md-auto" do %><span class="oi oi-wrench"></span><% end %>
-  <%= link_to megane_path(@megane.id), method: :delete, data:{confirm: "delete this megane?"}, class: "navbar-brand mr-md-auto" do %><span class="oi oi-x"></span><% end %>
+  <h2><%= @megane.content %></h2>
+  <h2>created by <%= @megane.user.login_name %></h2>
+  <h2><%= image_tag @megane.picture %></h2>
+  <% if logged_in? %>
+    <% if @megane.user_id == current_user.id %>
+      <%= link_to edit_megane_path(@megane.id), method: :get, class: "navbar-brand mr-md-auto" do %><span class="oi oi-wrench"></span><% end %>
+      <%= link_to megane_path(@megane.id), method: :delete, data:{confirm: "delete this megane?"}, class: "navbar-brand mr-md-auto" do %><span class="oi oi-x"></span><% end %>
+    <% end %>
+  <% end %>
 </div>

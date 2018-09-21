@@ -1,12 +1,11 @@
-<% @meganes.each do |megane| %>
-  <div>
-    <%= megane.content %>
-    <%= image_tag megane.picture %>
-    <% if logged_in? %>
-      <% if megane.user_id == current_user.id %>
-        <%= link_to edit_megane_path(megane.id), method: :get, class: "navbar-brand mr-md-auto" do %><span class="oi oi-wrench"></span><% end %>
-        <%= link_to megane_path(megane.id), method: :delete, data:{confirm: "delete this megane?"}, class: "navbar-brand mr-md-auto" do %><span class="oi oi-x"></span><% end %>
-      <% end %>
-    <% end %>
+<div id="meganes">
+  <div class="page">
+    <%= render @meganes %>
   </div>
-<% end %>
+</div>
+<div class="page-load-status">
+  <p class="infinite-scroll-request"><%= image_tag "loading.gif" %>Loading...</p>
+  <!--<p class="infinite-scroll-last">End of content</p>-->
+  <!--<p class="infinite-scroll-error">No more pages to load</p>-->
+</div>
+<%= paginate @meganes %>

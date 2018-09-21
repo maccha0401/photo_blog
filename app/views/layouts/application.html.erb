@@ -7,9 +7,11 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
 
-    <!-- ■ヘッダー -->
-    <nav class="navbar navbar-light" style="background-color: #ff00ff;">
+  <!-- ■ヘッダー -->
+  <header>
+    <nav class="navbar navbar-light fixed-top" style="background-color: #ff00ff;">
       <!-- ロゴ（共通） -->
       <%= link_to :root, class: "navbar-brand mr-md-auto" do %><span class="oi oi-camera-slr"></span><% end %>
       <% if logged_in? %>
@@ -24,7 +26,7 @@
         <%= link_to users_login_path, class: "navbar-brand" do %><span class="oi oi-key"></span><% end %>
       <% end %>
     </nav>
-  </head>
+  </header>
 
   <body>
     <!-- ■flash の表示 -->
@@ -40,7 +42,7 @@
 
   <!-- ■フッター -->
   <footer>
-    <nav class="navbar navbar-light" style="background-color: #ff00ff;">
+    <nav class="navbar navbar-light fixed-bottom" style="background-color: #ff00ff;">
       <!-- ホーム（共通） -->
       <%= link_to :root, class: "navbar-brand mr-md-auto" do %><span class="oi oi-home"></span><% end %>
       <% if logged_in? %>

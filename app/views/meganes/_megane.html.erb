@@ -1,0 +1,11 @@
+<div class="megane">
+  <div><%= link_to megane.content, megane_path(megane.id) %></div>
+  <div>created by <%= megane.user.login_name %></div>
+  <div><%= image_tag megane.picture %></div>
+  <% if logged_in? %>
+    <% if megane.user_id == current_user.id %>
+      <%= link_to edit_megane_path(megane.id), method: :get, class: "navbar-brand mr-md-auto" do %><span class="oi oi-wrench"></span><% end %>
+      <%= link_to megane_path(megane.id), method: :delete, data:{confirm: "delete this megane?"}, class: "navbar-brand mr-md-auto" do %><span class="oi oi-x"></span><% end %>
+    <% end %>
+  <% end %>
+</div>

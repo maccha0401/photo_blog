@@ -9,7 +9,8 @@ gem "bcrypt"       #=> session 管理用のgem。
 gem "carrierwave"  #=> 画像アップローダ用のgem。
 gem "mini_magick"  #=> 画像サイズ調整用のgem。
 
-gem "faker"  #=> gemfile  #=> ランダムな値を入れるgem。
+gem "faker"  #=> ランダムな値を入れるgem。
+gem "kaminari"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.1'

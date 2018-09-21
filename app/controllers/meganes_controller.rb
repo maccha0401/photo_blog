@@ -32,7 +32,8 @@ class MeganesController < ApplicationController
   end
 
   def index
-    @meganes = Megane.all.order(updated_at: :desc)
+    @meganes = Megane.order(updated_at: :desc).page(params[:page]).per(3)
+    # @meganes = Megane.all.order(updated_at: :desc)
   end
 
   def show
