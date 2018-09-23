@@ -13,13 +13,13 @@
   <div class="container">
     <div class="form_field">
       <div class="row">
-        <div class="col-12 offset-md-1 col-md-2"><%= form.label :content %></div>
-        <div class="offset-1 col-11 offset-md-0 col-md-8"><%= form.text_field :content %></div>
+        <div class="col-12 offset-md-1 col-md-2"><%= t "dictionary.content" %></div>
+        <div class="offset-1 col-11 offset-md-0 col-md-8"><%= form.text_field :content, required: true %></div>
       </div>
     </div>
     <div class="form_field">
       <div class="row">
-        <div class="col-12 offset-md-1 col-md-2"><%= form.label :picture %></div>
+        <div class="col-12 offset-md-1 col-md-2"><%= t "dictionary.picture" %></div>
         <%= image_tag(@megane.picture.url) if @megane.picture.url %>
         <%= form.hidden_field :picture_cache %>
         <div class="offset-1 col-11 offset-md-0 col-md-8"><%= form.file_field :picture, id: :megane_picture, value: @megane.picture_cache %></div>
@@ -30,8 +30,8 @@
   <div class="container">
     <div class="row">
       <div class="offset-1">
-        <%= form.submit %>
-        <%= link_to "back", :back, type: "button", class: "btn btn-default" %>
+        <%= form.submit t("button.create_megane") %>
+        <%= link_to t("button.back"), :back, type: "button", class: "btn btn-default" %>
       </div>
     </div>
   </div>

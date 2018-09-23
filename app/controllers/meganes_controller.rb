@@ -23,6 +23,7 @@ class MeganesController < ApplicationController
     set_new_megane_with_params
     @megane.user_id = current_user.id
     if @megane.save
+      InfoMailer.info_mail(@megane).deliver
       flash[:notice] = "Megane is created."
       redirect_to :root
     else

@@ -34,4 +34,7 @@ Rails.application.routes.draw do
       get :like_delete
     end
   end
+
+  # ■メール
+  mount LetterOpenerWeb::Engine, at:"/letter_opener" if Rails.env.development?  #=> /config/routes.rb
 end
