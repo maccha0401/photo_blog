@@ -14,4 +14,5 @@
 //= require jquery/dist/jquery.js
 //= require bootstrap/dist/js/bootstrap.min
 //= require infinite-scroll/dist/infinite-scroll.pkgd.min
+//= require turbolinks
 //= require_tree .
