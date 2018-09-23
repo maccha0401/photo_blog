@@ -1,6 +1,12 @@
 <% like = current_user.likes.find_by(megane_id: megane.id) %>
 <% if like.present? %>
-  <span><%= megane.likes_count %> likes  </span><%= link_to like_path(like.id), method: :delete, remote: true, class: "red-star" do %><span class="oi oi-link-broken"></span><% end %>
+  <span><%= megane.likes_count %> likes  </span>
+  <%= link_to like_path(like.id), method: :delete, remote: true, class: "red-star",
+    onclick: "window.open('likes/like_delete', 'like_delete', 'width=300 height=150 left=20 top=20 menubar=0 toolbar=0 scrollbars=1 resizable=1')" do %>
+  <span class="oi oi-link-broken"></span><% end %>
 <% else %>
-  <span><%= megane.likes_count %> likes  </span><%= link_to likes_path(megane_id: megane.id), method: :post, remote: true, class: "white-star" do %><span class="oi oi-link-intact"></span><% end %>
+  <span><%= megane.likes_count %> likes  </span>
+  <%= link_to likes_path(megane_id: megane.id), method: :post, remote: true, class: "white-star",
+    onclick: "window.open('likes/like_add', 'like_add', 'width=300 height=150 left=20 top=20 menubar=0 toolbar=0 scrollbars=1 resizable=1')" do %>
+  <span class="oi oi-link-intact"></span><% end %>
 <% end %>

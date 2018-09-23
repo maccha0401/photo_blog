@@ -28,5 +28,10 @@ Rails.application.routes.draw do
   end
   
   # ■like
-  resources :likes, only: [:index, :create, :destroy]
+  resources :likes, only: [:index, :create, :destroy] do
+    collection do
+      get :like_add
+      get :like_delete
+    end
+  end
 end
