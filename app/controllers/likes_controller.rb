@@ -1,6 +1,6 @@
 class LikesController < ApplicationController
   def index
-    @meganes = current_user.like_meganes.order(updated_at: :desc).page(params[:page]).per(3)
+    @meganes = current_user.like_meganes.order(updated_at: :desc).page(params[:page])
   end
   
   def create
