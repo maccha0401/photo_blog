@@ -18,7 +18,8 @@ class SessionsController < ApplicationController
       end
     # ■ログインできなかった場合、ログイン画面へ。
     else
-      flash.now[:danger] = "ログインに失敗しました。"
+      flash.now[:danger] = t("flash.login_failed")
+      # "Login failed."
       render "new"
     end
   end
@@ -26,7 +27,7 @@ class SessionsController < ApplicationController
   def destroy
     # ■ログアウト
     session.delete(:user_id)
-    flash[:notice] = "Logged Out."
+    flash[:notice] = t("flash.logged_out")
     redirect_to :root
   end
 end

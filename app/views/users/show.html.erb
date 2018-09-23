@@ -1,15 +1,15 @@
-<h1>User Info</h1>
+<h1><%= t "dictionary.user_info" %></h1>
 <div class="container">
   <div class="row">
-    <div class="col-12 offset-md-1 col-md-2"><p>login_name：</p></div>
+    <div class="col-12 offset-md-1 col-md-2"><p><%= t "dictionary.login_name" %>：</p></div>
     <div class="offset-1 col-11 offset-md-0 col-md-8"><p><%= @user.login_name %></p></div>
   </div>
   <div class="row">
-    <div class="col-12 offset-md-1 col-md-2"><p>email：</p></div>
+    <div class="col-12 offset-md-1 col-md-2"><p><%= t "dictionary.email" %>：</p></div>
     <div class="offset-1 col-11 offset-md-0 col-md-8"><p><%= @user.email %></p></div>
   </div>
   <div class="row">
-    <div class="col-12 offset-md-1 col-md-2"><p>face：</p></div>
+    <div class="col-12 offset-md-1 col-md-2"><p><%= t "dictionary.face" %>：</p></div>
     <div class="offset-1 col-11 offset-md-0 col-md-8"><%= image_tag(@user.face) if @user.face.present? %></div>
   </div>
 </div>
@@ -17,8 +17,8 @@
 <div class="container">
   <div class="row">
     <div class="offset-1">
-      <%= link_to "edit user", edit_users_path, type: "button", class: "btn btn-default" %>
-      <%= link_to "delete user", users_path, method: "delete", data:{confirm: "delete this user?"}, type: "button", class: "btn btn-default" %>
+      <%= link_to t("button.edit_user"), edit_users_path, type: "button", class: "btn btn-default" %>
+      <%= link_to t("button.delete_user"), users_path, method: "delete", data:{confirm: "delete this user?"}, type: "button", class: "btn btn-default" %>
     </div>
   </div>
 </div>

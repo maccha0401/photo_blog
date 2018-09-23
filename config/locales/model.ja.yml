@@ -1,0 +1,19 @@
+ja:
+  activerecord:
+    models:
+      megane: "ブログ"
+      user: "ユーザ"
+    attributes:
+      megane:
+        content: "本文"
+        picture: "写真"
+        created_at: "作成日時"
+        updated_at: "更新日時"
+      user:
+        login_name: "名前"
+        email: "メールアドレス"
+        password: "パスワード"
+        password_confirmation: "パスワード確認"
+        face: "顔写真"
+        created_at: "作成日時"
+        updated_at: "更新日時"
