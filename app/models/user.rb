@@ -13,4 +13,8 @@ class User < ApplicationRecord
 
   # ■Uploader
   mount_uploader :face, FaceUploader
+
+  # ■お気に入り
+  has_many :likes, dependent: :destroy
+  has_many :like_meganes, through: :likes, source: :megane
 end

@@ -21,6 +21,7 @@ CreateUser(4444)
   Megane.create!(
     content: Faker::OnePiece.akuma_no_mi,
     picture: File.open("./app/assets/images/header_button.png"),
-    user_id: Faker::Number.between(1, 4)
+    user_id: Faker::Number.between(1, 4),
+    likes_count: 0
   )
 end

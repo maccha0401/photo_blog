@@ -1,0 +1,6 @@
+<% like = current_user.likes.find_by(megane_id: megane.id) %>
+<% if like.present? %>
+  <span><%= megane.likes_count %> likes  </span><%= link_to like_path(like.id), method: :delete, remote: true, class: "red-star" do %><span class="oi oi-link-broken"></span><% end %>
+<% else %>
+  <span><%= megane.likes_count %> likes  </span><%= link_to likes_path(megane_id: megane.id), method: :post, remote: true, class: "white-star" do %><span class="oi oi-link-intact"></span><% end %>
+<% end %>

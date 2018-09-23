@@ -3,6 +3,7 @@
   <h2>created by <%= @megane.user.login_name %></h2>
   <h2><%= image_tag @megane.picture %></h2>
   <% if logged_in? %>
+    <div class="star" id="star-<%= @megane.id %>"><%= render partial: "likes/like", locals: {megane: @megane} %></div>
     <% if @megane.user_id == current_user.id %>
       <%= link_to edit_megane_path(@megane.id), method: :get, class: "navbar-brand mr-md-auto" do %><span class="oi oi-wrench"></span><% end %>
       <%= link_to megane_path(@megane.id), method: :delete, data:{confirm: "delete this megane?"}, class: "navbar-brand mr-md-auto" do %><span class="oi oi-x"></span><% end %>

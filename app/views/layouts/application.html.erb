@@ -47,7 +47,7 @@
       <%= link_to :root, class: "navbar-brand mr-md-auto" do %><span class="oi oi-home"></span><% end %>
       <% if logged_in? %>
         <!-- お気に入り -->
-        <%= link_to :mypage, class: "navbar-brand" do %><span class="oi oi-heart"></span><% end %>
+        <%= link_to likes_path, class: "navbar-brand" do %><span class="oi oi-heart"></span><% end %>
         <!-- 新規投稿 -->
         <%= link_to new_megane_path, class: "navbar-brand" do %><span class="oi oi-pencil"></span><% end %>
       <% end %>
