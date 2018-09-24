@@ -1,10 +1,4 @@
 Rails.application.routes.draw do
-  get 'likes/index'
-
-  get 'likes/create'
-
-  get 'likes/destroy'
-
   # ■root
   root to: "meganes#index"
 
