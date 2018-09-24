@@ -1,6 +1,7 @@
 class MeganesController < ApplicationController
   before_action :require_login, except: [:index, :show]
   before_action :set_megane, only: [:show, :edit, :update, :destroy]
+  before_action :it_belogns_to_current_user?, only: [:edit, :update, :destroy]
 
   def new
     if params[:back]
@@ -74,5 +75,11 @@ class MeganesController < ApplicationController
 
   def set_new_megane_with_params
     @megane = Megane.new(megane_params)
+  end
+  
+  def it_belogns_to_current_user?
+    if @megane.user_id != current_user.id
+      redirect_to :root
+    end
   end
 end
